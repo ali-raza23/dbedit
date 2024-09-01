@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import ErrorRadios from './components/test'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-function App() {
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#535da8',
+    },
+    secondary: {
+      main: '#283593',
+    },
+  },
+});
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div
+      style={{
+        alignItems:'center',
+        justifyContent:'center',
+        display:'flex',
+        height:'100vh'
+      }}
+      >
+        <ErrorRadios />
+      </div>
+    </ThemeProvider>
   );
 }
-
-export default App;
